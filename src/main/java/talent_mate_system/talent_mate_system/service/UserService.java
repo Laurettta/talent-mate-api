@@ -54,15 +54,18 @@ public class UserService {
         jobSeeker.setProfileCategory(ProfileCategory.JOB_SEEKER);
         jobSeeker.setConfirmed(false); // Email confirmation pending
 
-        // Save job seeker to the repository
-        userRepository.save(jobSeeker);
+        logger.info("Data is received");
 
-        // Send confirmation email
-        boolean emailSent = emailService.sendConfirmationEmail(jobSeeker);
-        if (!emailSent) {
-            logger.error("Failed to send confirmation email to: {}", jobSeeker.getEmail());
-            throw new EmailSendingException("Failed to send confirmation email.");
-        }
+
+//        // Save job seeker to the repository
+//        userRepository.save(jobSeeker);
+//
+//        // Send confirmation email
+//        boolean emailSent = emailService.sendConfirmationEmail(jobSeeker);
+//        if (!emailSent) {
+//            logger.error("Failed to send confirmation email to: {}", jobSeeker.getEmail());
+//            throw new EmailSendingException("Failed to send confirmation email.");
+//        }
     }
 
     public void registerRecruiter(SignupRequest signupRequest)
